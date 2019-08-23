@@ -16,7 +16,8 @@
 * Web API based on PHP to read the data, proccess it into segments and write it to Local MySQL Database
 * Created Local MySQL Database to store the recieved data
 * Created a PHP script to act as a Web API which sends out JSON object
+* Created a seperate Android API to feed the Android App JSON object
 
 ## Trying To Accomplish
-* Recieve the JSON object and display as graphs
-* Creating a seperate Android API to feed the Android App JSON data
+* Recieve the JSON object and display as graphs on a Web Interface
+* Update the data in real time in the Android App
