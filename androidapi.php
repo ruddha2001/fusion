@@ -20,7 +20,7 @@
 
         $var=json_encode($row);
 
-        echo $var;//Echoes a JSON object
+        echo "[".$var."]";//Echoes a JSON object in the proper format
     }
     callFunc();
 ?>
