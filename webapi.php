@@ -10,7 +10,7 @@
 
         $query = "SELECT * FROM datastorage ORDER BY id DESC LIMIT 1";
 
-        $result = mysqli_query($GLOBALS['conn'],$query);
+        $result = mysqli_query($GLOBALS['conn'], $query);
 
         $row = mysqli_fetch_assoc($result);
 
