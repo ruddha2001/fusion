@@ -18,5 +18,5 @@
 * Created a PHP script to act as a Web API which sends out JSON object
 
 ## Trying To Accomplish
-* Receive the JSON object and display as graphs
+* Recieve the JSON object and display as graphs
 * Creating a seperate Android API to feed the Android App JSON data
