@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -263,23 +264,28 @@
 
     <body style="background: url('background.jpg'); background-repeat: no-repeat; background-size: cover;">
         <h1>GAS CONCENTRATIONS</h1>
+	<h1 align="center">Hello <?php echo $_SESSION['name'];?></h1>
         <div class="container-fluid">
 	        <div class="row" style="padding: 7px 0px;">
-                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-6">
+                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-5">
                     <div id="chartContainer1" style="height: 300px; width:100%; padding: 30px 5px;"></div>
                 </div>
 
-                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-6">
+                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-5">
                     <div id="chartContainer2" style="height: 300px; width:100%; padding: 30px 0px;"></div>
+                </div>
+			
+		<div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-5" style="border:1px solid #000000;overflow: auto;">
+                    
                 </div>
             </div>
 
             <div class="row" style="padding: 7px 0px;">
-                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-6">
+                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-5">
                     <div id="chartContainer3" style="height: 300px; width:100%; padding: 35px 5px;"></div>
                 </div>
 
-                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-6">
+                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-5">
                     <div id="chartContainer4" class="shadow" style="height: 300px; width:100%; padding: 35px 0px;"></div>
                 </div>
 	        </div>
