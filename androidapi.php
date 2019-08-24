@@ -18,6 +18,10 @@
 
         $row['enose']=str_replace(array("\n", "\r"), '', $row['enose']);//Removes undesired newlines
 
+        if ($row['enose']>80){
+            $row['ldrflag']=1;
+        }
+
         $var=json_encode($row);
 
         echo "[".$var."]";//Echoes a JSON object in proper format
