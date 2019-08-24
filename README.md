@@ -1,5 +1,11 @@
 # FUSION
 
+## Problem Statement
+### Garbage Transportation Management System
+Garbage is everywhere. And in Metropolitian Cities, there is of course more of it. Garbage collection and transportation becomes a huge challenge for the Municipal Corporations. Covering huge areas becomes hectic. And it is never neccessary that every dustbin requires cleaning every day.
+The trucks going to and checking each and every dutbin is a waste of time and resources. What if a truck will visit only the dustbins that actually need cleaning? What is there is less load to manage everyday? What if the lesser on road times of the trucks contribute to reducing pollution?
+Team Hackathanos plans to change these "what if"s with FUSION.
+
 ### Requirements
 * Raspberry Pi Zero W (2 Units)
 * Arduino Uno
