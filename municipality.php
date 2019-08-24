@@ -1,3 +1,10 @@
+<?php 
+	//Checks if User is logged out
+	session_start();
+	if (isset($_SESSION['name'])==false or $_SESSION['name']==""){
+		echo "<script>window.location.href='http://192.168.43.171';</script>";
+	}
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -5,6 +12,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!--Google Fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 
 
         <style>
@@ -16,7 +25,7 @@
             
             h1 {
                 text-align: center;
-			    font-family: serif;
+			    font-family: 'Rubik Mono One',serif;
 			    font-weight: normal; 
 			    text-transform: uppercase; 
 			    border-bottom: 4px solid #57b1dc; 
@@ -30,13 +39,10 @@
 
         <script>
             window.onload = function () {
-
                 var dps1 = [];
                 var dps2 = [];
                 var dps3 = [];
                 var dps4 = [];
-
-
                 var chart1 = new CanvasJS.Chart("chartContainer1", {
                     //backgroundColor: "#4CAF50",
                     exportEnabled: true,
@@ -106,23 +112,18 @@
                             dataPoints: dps4 
                     }]
                 });
-
                 var xVal = 0;
                 var yVal = 100;
                 var updateInterval = 2000;
                 var dataLength = 50; // number of dataPoints visible at any point
-
-
                 var updateChart1 = async function (count) {
                     count = count || 1;
                     // count is number of times loop runs to generate random dataPoints.
                     for (var j = 0; j < count; j++) {	
-                        let url="http://10.4.168.116/webapi.php"
+                        let url="http://192.168.43.171/webapi.php"
                         let response = await fetch(url);
                         let json= await response.json();
-
-                        yVal = parseInt(json['sensora']) ;
-
+                        yVal = parseInt(json['enose']) ;
                         dps1.push({
                             x: xVal,
                             y: yVal
@@ -134,18 +135,15 @@
                     }
                     chart1.render();
                 };
-
                 var updateChart2 = async function (count) {
                     count = count || 1;
                     // count is number of times loop runs to generate random dataPoints.
                     for (var j = 0; j < count; j++) {	
             
-                        let url="http://10.4.168.116/webapi.php"
+                        let url="http://192.168.43.171/webapi.php"
                         let response = await fetch(url);
                         let json= await response.json();
-
-                        yVal = parseInt(json['sensorb']) ;
-
+                        yVal = parseInt(json['enose']) ;
                         dps2.push({
                             x: xVal,
                             y: yVal
@@ -158,17 +156,14 @@
         
                     chart2.render();
                 };
-
                 var updateChart3 = async function (count) {
                     count = count || 1;
                     // count is number of times loop runs to generate random dataPoints.
                     for (var j = 0; j < count; j++) {	
-                        let url="http://10.4.168.116/webapi.php"
+                        let url="http://192.168.43.171/webapi.php"
                         let response = await fetch(url);
                         let json= await response.json();
-
-                        yVal = parseInt(json['sensorc']) ;
-
+                        yVal = parseInt(json['enose']) ;
                         dps3.push({
                             x: xVal,
                             y: yVal
@@ -180,17 +175,14 @@
                     }
                     chart3.render();
                 };
-
                 var updateChart4 = async function (count) {
                     count = count || 1;
                     // count is number of times loop runs to generate random dataPoints.
                     for (var j = 0; j < count; j++) {	
-                        let url="http://10.4.168.116/webapi.php"
+                        let url="http://192.168.43.171/webapi.php"
                         let response = await fetch(url);
                         let json= await response.json();
-
-                        yVal = parseInt(json['sensord']) ;
-
+                        yVal = parseInt(json['enose']) ;
                         dps4.push({
                             x: xVal,
                             y: yVal
@@ -202,8 +194,6 @@
                     }
                     chart4.render();
                 };
-
-
                 updateChart1(dataLength); 
                 updateChart2(dataLength);
                 updateChart3(dataLength);
@@ -216,7 +206,6 @@
                 }, 
                 updateInterval); 
             }
-
             function toogleDataSeries(e){
                 if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
                     e.dataSeries.visible = false;
@@ -230,16 +219,35 @@
 
     </head>
 
-    <body style="background: url('b3.jpg'); background-blend-mode: multiply; background-repeat: no-repeat; background-size: cover;">
+    <body style="background: url('background.jpg'); background-blend-mode: multiply; background-repeat: no-repeat; background-size: cover;">
         <h1>GARBAGE ACCUMULATION DATA</h1>
         <div class="container-fluid">
+			<div class="row">
+            <a href="single_bin.php" class="btn btn-info" role="button" style="margin:0px auto;">Go to Single Bin</a>
+			<a href="logout.php" class="btn btn-danger" role="button" style="margin:0px auto;">Logout</a>
+			</div>
+        </div>
+        
+        <div class="container-fluid">
 	        <div class="row" style="padding: 7px 0px;">
-                <div class ="col-md-10 offset-md-1 offset-lg-0 col-lg-12">
-                    <div id="chartContainer1" style="height: 600px; width:100%; padding: 30px 5px;"></div>
+            <div class ="col-md-10 offset-md-1 offset-lg-1 col-lg-10">
+                    <div id="chartContainer1" style="height: 400px; width:100%; padding: 30px 5px;"></div>
                 </div>
             </div>
         </div>
 
+
+        <!--Container Fluid for the Bin Name Displays-->
+		<div class="container-fluid" style="padding-top: 30px;">
+			<div class="row">
+				<div class="col-sm-12 col-md-6" style="text-align: center;" id="bad">
+				<h3>Bins Needing Cleaner</h3>
+				</div>
+				<div class="col-sm-12 col-md-6" style="text-align: center;" id="good">
+				<h3>Bins That Are Okay</h3>
+				</div>
+			</div>
+		</div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
     </body>
 </html>
