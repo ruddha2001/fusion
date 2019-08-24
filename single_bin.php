@@ -1,3 +1,10 @@
+<?php 
+	//Checks if User is logged out
+	session_start();
+	if (isset($_SESSION['name'])==false or $_SESSION['name']==""){
+		echo "<script>window.location.href='http://192.168.43.171';</script>";
+	}
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -75,7 +82,7 @@
                         let response = await fetch(url);
                         let json= await response.json();
                         yVal = parseInt(json['enose']) ;
-						dataUpdate(yVal,json['bin']);
+						dataUpdate(yVal,json['bin'],json['ldrflag']);
                         dps1.push({
                             x: xVal,
                             y: yVal
@@ -95,15 +102,19 @@
             }
         </script>
 		<script>
-			function dataUpdate(data,name){
+			function dataUpdate(data,name,ldr){
 				if (data>80)
 				{
-					document.getElementById('bad').innerHTML="<h3>These Bins need the cleaners!</h3><h5 style='color: red;'><b>"+name+"</b></h5>";
-					document.getElementById('good').innerHTML="<h3>These Bins are good to go!</h3>";
+					document.getElementById('bad').innerHTML="<h3>Bins Needing Cleaner</h3><h5 style='color: red;'><b>"+name+" - Stinks</b></h5>";
+					document.getElementById('good').innerHTML="<h3>Bins That Are Okay</h3>";
+				}
+				else if (ldr==1){
+					document.getElementById('bad').innerHTML="<h3>Bins Needing Cleaner</h3><h5 style='color: red;'><b>"+name+" - Full</b></h5>";
+					document.getElementById('good').innerHTML="<h3>Bins That Are Okay</h3>";
 				}
 				else{
-					document.getElementById('good').innerHTML="<h3>These Bins are good to go!</h3><h5 style='color: green;'><b>"+name+"</b></h5>";
-					document.getElementById('bad').innerHTML="<h3>These Bins need the cleaners!</h3>";
+					document.getElementById('good').innerHTML="<h3>Bins That Are Okay</h3><h5 style='color: green;'><b>"+name+"</b></h5>";
+					document.getElementById('bad').innerHTML="<h3>Bins Needing Cleaner</h3>";
 				}
 			}
 		</script>
@@ -112,7 +123,13 @@
 
     <body style="background: url('background.jpg'); background-blend-mode: multiply; background-repeat: no-repeat; background-size: cover;">
         <h1>GARBAGE ACCUMULATION DATA</h1>
-
+		
+		<div class="container-fluid">
+			<div class="row">
+            <a href="municipality.php" class="btn btn-info" role="button" style="margin:0px auto;">Go to Municipality View</a>
+			<a href="logout.php" class="btn btn-danger" role="button" style="margin:0px auto;">Logout</a>
+			</div>
+		</div>
 		<!--Container Fluid for the Chart-->
         <div class="container-fluid">
 	        <div class="row" style="padding: 7px 0px;">
@@ -126,10 +143,10 @@
 		<div class="container-fluid" style="padding-top: 30px;">
 			<div class="row">
 				<div class="col-sm-12 col-md-6" style="text-align: center;" id="bad">
-				<h3>These Bins need the cleaners!</h3>
+				<h3>Bins Needing Cleaner</h3>
 				</div>
 				<div class="col-sm-12 col-md-6" style="text-align: center;" id="good">
-				<h3>These Bins are good to go!</h3>
+				<h3>Bins That Are Okay</h3>
 				</div>
 			</div>
 		</div>
