@@ -37,12 +37,22 @@
 
     //Values of every Sensor
     $valuea=breakData('A');
-  	$valueb=breakData('B');
-	  $valuec=breakData('C');
+    $valueb=breakData('B');
+    $valuec=breakData('C');
     $valued=breakData('D');
+    $valuee=breakData('E');
     
+    if ($valuea>=50 or $valueb>=50 or $valuec>=50 or $valued>=50) //If any LDR is false, flag is true
+    {
+        $flag=true;
+    }
+    else
+    {
+        $flag=false;
+    }
+
     //Writing the data to MySQL Database
-    $query = "INSERT INTO datastorage (id, sensora, sensorb, sensorc, sensord) VALUES (NULL, '$valuea','$valueb','$valuec','$valued')";
+    $query = "INSERT INTO garbage (id, bin, ldrflag, enose) VALUES (NULL, 'Bin 1 Kolkata','$flag','$valuee')";
     
     $result = mysqli_query ($conn, $query);
 
