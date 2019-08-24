@@ -10,13 +10,13 @@
      */
     function callFunc() {
 
-        $query = "SELECT * FROM datastorage ORDER BY id DESC LIMIT 1";
+        $query = "SELECT * FROM garbage ORDER BY id DESC LIMIT 1";
 
         $result = mysqli_query($GLOBALS['conn'],$query);
 
         $row = mysqli_fetch_assoc($result);
 
-        $row['sensord']=str_replace(array("\n", "\r"), '', $row['sensord']);//Removes undesired newlines
+        $row['enose']=str_replace(array("\n", "\r"), '', $row['enose']);//Removes undesired newlines
 
         $var=json_encode($row);
 
