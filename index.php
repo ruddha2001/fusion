@@ -2,7 +2,7 @@
     session_start();
     if (isset($_SESSION['user']) and $_SESSION['user']!="")
     {
-        header ("Location: http://localhost/chart2.php");
+        header ("Location: http://192.168.43.171/single_bin.php");
     }
 ?>
 
@@ -37,19 +37,19 @@
   <div class="card-body px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" style="color: #757575;" action="#!">
+    <form class="text-center" style="color: #757575;" action="login.php" method="post">
 
       <!-- Email -->
       <div class="md-form">
-      <label for="materialLoginFormEmail"><b>E-mail</b></label>
-        <input type="email" id="materialLoginFormEmail" class="form-control">
+      <label for="materialLoginFormEmail"><b>Username</b></label>
+        <input type="text" name="user" id="materialLoginFormEmail" class="form-control">
         
       </div>
         <br>
       <!-- Password -->
       <div class="md-form">
       <label for="materialLoginFormPassword"><b>Password</b></label>
-        <input type="password" id="materialLoginFormPassword" class="form-control">
+        <input type="password" name="pass" id="materialLoginFormPassword" class="form-control">
         
       </div>
 
