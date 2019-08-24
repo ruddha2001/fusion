@@ -23,8 +23,9 @@ Team Hackathanos plans to change these "what if"s with FUSION.
 * Created Local MySQL Database to store the recieved data
 * Created a PHP script to act as a Web API which sends out JSON object
 * Created a seperate Android API to feed the Android App JSON object
-* Recieve the JSON object and display as graphs on a Web Interface
-* Update the data in real time in the Android App
+* Recieving the JSON object and display as graphs on a Web Interface
+* Updating the data in real time in the Android App
+* Arduino Code to send output from sensors
 
 ## Trying To Accomplish
 * Show multi line graph on the Web Server
