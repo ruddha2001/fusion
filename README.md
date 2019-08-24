@@ -2,16 +2,15 @@
 
 ## Problem Statement
 ### Garbage Transportation Management System
-Garbage is everywhere. And in Metropolitian Cities, there is of course more of it. Garbage collection and transportation becomes a huge challenge for the Municipal Corporations. Covering huge areas is usually hectic and expensive. Also it is not always so, that every dustbin requires cleaning every day.
-The trucks going to and checking each and every dutbin is a waste of time and resources. "What If" a truck will visit only those dustbins that actually require cleaning? "What If" is there is less load to manage everyday? "What If" the lesser "on road times" of the trucks contribute to reducing pollution?
-Team HackaThanos plans to change these "What If's" with FUSION - A Garbage Management System.
+62 million tonnes annually averages out to 450 grams of waste per person per day. However, there is a lot of variability in per capita waste generation in India, daily household municipal solid waste (MSW) generation ranges from 170 grams per person in small towns to 620 grams per person in large cities. With rapid urbanisation, the country is facing massive waste management challenge. Over 377 million urban people live in 7,935 towns and cities and generate 62 million tonnes of municipal solid waste per annum. Only 43 million tonnes (MT) of the waste is collected, 11.9 MT is treated and 31 MT is dumped in landfill sites.
 
-### Requirements
-* Raspberry Pi Zero W (2 Units)
+More than three-fourth of solid waste management budget is allotted to collection and transportation, leaving very little for processing or resource recovery and disposal.
+
+## Requirements
+* Raspberry Pi Zero W
 * Arduino Uno
 * Potentiometers
 * LED
-* Piezo Buzzer
 * LCD Module
 * PHP Local Server
 * Local MySQL Database
@@ -27,3 +26,4 @@ Team HackaThanos plans to change these "What If's" with FUSION - A Garbage Manag
 * Updating the data in real time in the Android App.
 * Arduino Code to send output from sensors.
 * Displays multi line graph for an entire locality on the Web Server.
+* Displays real time data in the Android App
