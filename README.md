@@ -17,7 +17,8 @@
 * Created Local MySQL Database to store the recieved data
 * Created a PHP script to act as a Web API which sends out JSON object
 * Created a seperate Android API to feed the Android App JSON object
-
-## Trying To Accomplish
 * Recieve the JSON object and display as graphs on a Web Interface
 * Update the data in real time in the Android App
+
+## Trying To Accomplish
+* Show multi line graph on the Web Server
