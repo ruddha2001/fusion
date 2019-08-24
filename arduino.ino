@@ -1,0 +1,20 @@
+void setup() {
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  int inputA=analogRead(A0);
+  int inputB=analogRead(A1);
+  int inputC=analogRead(A2);
+  int inputD=analogRead(A3);
+  int inputE=analogRead(A4);
+  String outputA = String(map(inputA,0,1023,0,100));
+  String outputB = String(map(inputB,0,1023,0,100));
+  String outputC = String(map(inputC,0,1023,0,100));
+  String outputD = String(map(inputD,0,1023,0,100));
+  String outputE = String(map(inputE,0,1023,0,100));
+  String totalOutput="A"+outputA+"B"+outputB+"C"+outputC+"D"+outputD+"E"+outputE;
+  Serial.println(totalOutput);
+  delay(1000);
+}
